@@ -1,0 +1,50 @@
+.row {
+  max-width: $grid-width;
+  margin: 0 auto;  
+
+  
+  &:first-child{
+    margin-top: 2rem;
+  }
+  &:not(:last-child){
+    margin-bottom: $gutter-vertical;
+  }
+
+  [class^="col-"] {
+    
+    float: left;
+    &:not(:last-child) {
+      margin-right: $gutter-horizointal;
+    }
+  }
+  @include clearfix;
+  .col-1-of-2{
+    /* width: calc( (100% - #{$gutter-horizointal}) / 2); */
+    @include calculate(1,2);
+  }
+  .col-1-of-3 {
+    /* width: calc( (100% - #{$gutter-horizointal} * 2) / 3); */
+    @include calculate(1,3);
+  }
+  .col-2-of-3 {
+    /* width: calc( 2 * ((100% - #{$gutter-horizointal} * 2) / 3) + #{$gutter-horizointal}) ; */
+    @include calculate(2,3);
+  }
+  .col-1-of-4 {
+    /* width: calc( (100% - #{$gutter-horizointal} * 3) / 4); */
+    @include calculate(1,4);
+  }
+  .col-2-of-4 {
+    /* width: calc( 2 * ((100% - #{$gutter-horizointal} * 3) / 4) + #{$gutter-horizointal}) ; */
+    @include calculate(2,4);
+  }
+
+  .col-3-of-4 {
+   /*  width: calc( 3 * ((100% - #{$gutter-horizointal} * 3) / 4) + 2 * #{$gutter-horizointal}) ; */
+    @include calculate(3,4);
+  }
+
+
+}
+
+

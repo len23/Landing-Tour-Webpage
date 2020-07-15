@@ -1,0 +1,16 @@
+@mixin clearfix{
+  &::after{
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
+
+@mixin calculate($nrOcupy,$nrCols){
+  
+  @if($nrOcupy == 1){
+    width: calc( (100% - (#{$gutter-horizointal} * (#{$nrCols} - 1))) / #{$nrCols});
+  }@else {  
+    width: calc( #{$nrOcupy} * ((100% - (#{$gutter-horizointal} * (#{$nrCols} - 1))) / #{$nrCols}) + (#{$nrOcupy} - 1) * #{$gutter-horizointal});
+  }
+}
